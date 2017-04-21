@@ -36,6 +36,7 @@ RUN INFER_VERSION=v0.11.0; \
     curl -sL \
       https://github.com/facebook/infer/releases/download/${INFER_VERSION}/infer-linux64-${INFER_VERSION}.tar.xz | \
     tar xJ && \
+    ( cd "infer-linux64-${INFER_VERSION}" && sed -e 's/"reason" {="1.13.3"}/"reason" {="1.13.4"}/' -i"" opam ) && \
     rm -f /infer && \
     ln -s ${PWD}/infer-linux64-$INFER_VERSION /infer
 
